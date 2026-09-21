@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yennenga Mode — Logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,500;1,6..72,600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#1F2A38;
+    --indigo-deep:#141C26;
+    --ocre:#A6512E;
+    --ivoire:#F2E9DA;
+    --ivoire-soft:#F8F2E8;
+    --laiton:#B98B3E;
+    --laiton-pale:#D3AE68;
+    --encre:#211A15;
+    --ligne:rgba(185,139,62,0.32);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Manrope', sans-serif;
+    background:var(--ivoire);
+    color:var(--encre);
+    padding:60px 24px 100px;
+  }
+  .wrap{max-width:1080px; margin:0 auto;}
+  header.page{margin-bottom:60px;}
+  header.page h1{font-family:'Newsreader', serif; font-weight:500; font-size:2rem;}
+  header.page p{margin-top:10px; color:rgba(33,26,21,0.6); max-width:56ch; font-size:0.98rem;}
+
+  section{margin-bottom:64px;}
+  section h2{
+    font-family:'Manrope', sans-serif; font-size:0.82rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:0.08em; color:rgba(33,26,21,0.45);
+    margin-bottom:20px;
+  }
+
+  .tile-row{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .tile{
+    border:1px solid var(--ligne); border-radius:3px;
+    display:flex; align-items:center; justify-content:center;
+    padding:60px 30px; min-height:220px;
+  }
+  .tile.light{background:var(--ivoire-soft);}
+  .tile.dark{background:var(--indigo); }
+
+  /* ---- MARQUE : icone ---- */
+  .mark svg{display:block;}
+  .mark-icon{width:76px; height:88px;}
+
+  /* ---- LOCKUP HORIZONTAL ---- */
+  .lockup-h{display:flex; align-items:center; gap:22px;}
+  .lockup-h .mark-icon{width:52px; height:60px;}
+  .wordmark{display:flex; flex-direction:column;}
+  .wordmark .brand{
+    font-family:'Newsreader', serif; font-style:italic; font-weight:500;
+    font-size:1.9rem; line-height:1;
+  }
+  .wordmark .cat{
+    font-family:'Manrope', sans-serif; font-weight:600; font-size:0.72rem;
+    letter-spacing:0.32em; margin-top:6px;
+  }
+  .tile.light .brand, .tile.light .cat{color:var(--indigo);}
+  .tile.dark .brand, .tile.dark .cat{color:var(--ivoire-soft);}
+
+  /* ---- LOCKUP EMPILE ---- */
+  .lockup-v{display:flex; flex-direction:column; align-items:center; gap:16px;}
+  .lockup-v .mark-icon{width:60px; height:70px;}
+  .lockup-v .wordmark{align-items:center; text-align:center;}
+
+  /* ---- ECHELLE ---- */
+  .scale-row{display:flex; align-items:flex-end; gap:36px; justify-content:center; flex-wrap:wrap; padding:50px 30px;}
+  .scale-item{display:flex; flex-direction:column; align-items:center; gap:10px;}
+  .scale-item span{font-size:0.75rem; color:rgba(33,26,21,0.5);}
+
+  /* ---- FAVICON / SCEAU ---- */
+  .seal-row{display:flex; gap:20px; justify-content:center; flex-wrap:wrap; padding:40px 30px;}
+  .seal{
+    width:72px; height:72px; border-radius:50%;
+    background:var(--indigo); display:flex; align-items:center; justify-content:center;
+  }
+  .seal.alt{background:var(--laiton);}
+  .seal svg{width:34px; height:40px;}
+
+  /* ---- GUIDE ---- */
+  .guide-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;}
+  .guide-card{
+    border:1px solid var(--ligne); border-radius:3px; padding:26px;
+    background:var(--ivoire-soft);
+  }
+  .guide-card .k{font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--ocre); margin-bottom:10px;}
+  .guide-card p{font-size:0.88rem; color:rgba(33,26,21,0.68); line-height:1.55;}
+  .swatches{display:flex; gap:10px; margin-top:14px;}
+  .swatch{width:28px; height:28px; border-radius:50%; border:1px solid rgba(0,0,0,0.1);}
+
+  /* ---- CODE ---- */
+  .code-block{
+    background:var(--indigo-deep); color:var(--ivoire-soft);
+    border-radius:3px; padding:24px; overflow-x:auto;
+    font-family:ui-monospace, monospace; font-size:0.78rem; line-height:1.6;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page">
+    <h1>Yennenga Mode — proposition de logo</h1>
+    <p>Le monogramme reprend le motif déjà utilisé sur le site (l'anse du sac en arche) et le fait doubler visuellement comme un "Y" — le signe reste lisible aussi bien comme initiale de la marque que comme silhouette de sac.</p>
+  </header>
+
+  <section>
+    <h2>Le monogramme</h2>
+    <div class="tile-row">
+      <div class="tile light">
+        <div class="mark">
+          <svg class="mark-icon" viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 C14 14 62 14 62 34" stroke="#A6512E" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M14 34 C14 48 34 52 38 62" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M62 34 C62 48 42 52 38 62" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="38" y1="62" x2="38" y2="84" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="tile dark">
+        <div class="mark">
+          <svg class="mark-icon" viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 C14 14 62 14 62 34" stroke="#D3AE68" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M14 34 C14 48 34 52 38 62" stroke="#F8F2E8" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M62 34 C62 48 42 52 38 62" stroke="#F8F2E8" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="38" y1="62" x2="38" y2="84" stroke="#F8F2E8" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lockup horizontal (en-tête de site, papier à en-tête)</h2>
+    <div class="tile-row">
+      <div class="tile light">
+        <div class="lockup-h">
+          <svg class="mark-icon" viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 C14 14 62 14 62 34" stroke="#A6512E" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M14 34 C14 48 34 52 38 62" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M62 34 C62 48 42 52 38 62" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="38" y1="62" x2="38" y2="84" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+          <div class="wordmark">
+            <div class="brand">Yennenga</div>
+            <div class="cat">MODE</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile dark">
+        <div class="lockup-h">
+          <svg class="mark-icon" viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 C14 14 62 14 62 34" stroke="#D3AE68" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M14 34 C14 48 34 52 38 62" stroke="#F8F2E8" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M62 34 C62 48 42 52 38 62" stroke="#F8F2E8" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="38" y1="62" x2="38" y2="84" stroke="#F8F2E8" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+          <div class="wordmark">
+            <div class="brand">Yennenga</div>
+            <div class="cat">MODE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lockup empilé (réseaux sociaux, étiquette, emballage)</h2>
+    <div class="tile-row">
+      <div class="tile light">
+        <div class="lockup-v">
+          <svg class="mark-icon" viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 C14 14 62 14 62 34" stroke="#A6512E" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M14 34 C14 48 34 52 38 62" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M62 34 C62 48 42 52 38 62" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="38" y1="62" x2="38" y2="84" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+          <div class="wordmark">
+            <div class="brand">Yennenga</div>
+            <div class="cat">MODE</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile dark">
+        <div class="lockup-v">
+          <svg class="mark-icon" viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 C14 14 62 14 62 34" stroke="#D3AE68" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M14 34 C14 48 34 52 38 62" stroke="#F8F2E8" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M62 34 C62 48 42 52 38 62" stroke="#F8F2E8" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="38" y1="62" x2="38" y2="84" stroke="#F8F2E8" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+          <div class="wordmark">
+            <div class="brand">Yennenga</div>
+            <div class="cat">MODE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tenue à petite taille</h2>
+    <div class="tile light" style="padding:0;">
+      <div class="scale-row">
+        <div class="scale-item">
+          <svg width="76" height="88" viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 C14 14 62 14 62 34" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M14 34 C14 48 34 52 38 62" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M62 34 C62 48 42 52 38 62" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="38" y1="62" x2="38" y2="84" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+          <span>76 px</span>
+        </div>
+        <div class="scale-item">
+          <svg width="48" height="55" viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 C14 14 62 14 62 34" stroke="#1F2A38" stroke-width="5.5" stroke-linecap="round"/>
+            <path d="M14 34 C14 48 34 52 38 62" stroke="#1F2A38" stroke-width="5.5" stroke-linecap="round"/>
+            <path d="M62 34 C62 48 42 52 38 62" stroke="#1F2A38" stroke-width="5.5" stroke-linecap="round"/>
+            <line x1="38" y1="62" x2="38" y2="84" stroke="#1F2A38" stroke-width="5.5" stroke-linecap="round"/>
+          </svg>
+          <span>48 px</span>
+        </div>
+        <div class="scale-item">
+          <svg width="28" height="32" viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 C14 14 62 14 62 34" stroke="#1F2A38" stroke-width="7" stroke-linecap="round"/>
+            <path d="M14 34 C14 48 34 52 38 62" stroke="#1F2A38" stroke-width="7" stroke-linecap="round"/>
+            <path d="M62 34 C62 48 42 52 38 62" stroke="#1F2A38" stroke-width="7" stroke-linecap="round"/>
+            <line x1="38" y1="62" x2="38" y2="84" stroke="#1F2A38" stroke-width="7" stroke-linecap="round"/>
+          </svg>
+          <span>28 px — taille mini recommandée</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sceau / icône d'application (favicon, réseaux sociaux)</h2>
+    <div class="tile light" style="padding:0;">
+      <div class="seal-row">
+        <div class="seal">
+          <svg viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 C14 14 62 14 62 34" stroke="#D3AE68" stroke-width="6" stroke-linecap="round"/>
+            <path d="M14 34 C14 48 34 52 38 62" stroke="#F8F2E8" stroke-width="6" stroke-linecap="round"/>
+            <path d="M62 34 C62 48 42 52 38 62" stroke="#F8F2E8" stroke-width="6" stroke-linecap="round"/>
+            <line x1="38" y1="62" x2="38" y2="84" stroke="#F8F2E8" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="seal alt">
+          <svg viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34 C14 14 62 14 62 34" stroke="#1F2A38" stroke-width="6" stroke-linecap="round"/>
+            <path d="M14 34 C14 48 34 52 38 62" stroke="#1F2A38" stroke-width="6" stroke-linecap="round"/>
+            <path d="M62 34 C62 48 42 52 38 62" stroke="#1F2A38" stroke-width="6" stroke-linecap="round"/>
+            <line x1="38" y1="62" x2="38" y2="84" stroke="#1F2A38" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Repères de marque</h2>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <div class="k">Typographies</div>
+        <p>Newsreader italique pour "Yennenga" (signature, chaleur), Manrope semi-gras tracké pour "MODE" (rigueur, modernité). Les deux polices sont déjà utilisées sur le site.</p>
+      </div>
+      <div class="guide-card">
+        <div class="k">Couleurs</div>
+        <p>Indigo comme couleur dominante, laiton comme accent rare (le sceau, un détail), ivoire comme fond. L'ocre reste réservé aux appels à l'action.</p>
+        <div class="swatches">
+          <div class="swatch" style="background:#1F2A38;"></div>
+          <div class="swatch" style="background:#B98B3E;"></div>
+          <div class="swatch" style="background:#A6512E;"></div>
+          <div class="swatch" style="background:#F2E9DA; border-color:rgba(0,0,0,0.15);"></div>
+        </div>
+      </div>
+      <div class="guide-card">
+        <div class="k">À éviter</div>
+        <p>Ne pas étirer le monogramme de façon disproportionnée, ne pas le recolorer hors de cette palette, ne pas le poser sur une photo chargée sans plaque de fond unie.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Code SVG du monogramme (pour Claude Code / le favicon)</h2>
+    <div class="code-block">&lt;svg viewBox="0 0 76 88" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;path d="M14 34 C14 14 62 14 62 34" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/&gt;
+  &lt;path d="M14 34 C14 48 34 52 38 62" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/&gt;
+  &lt;path d="M62 34 C62 48 42 52 38 62" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/&gt;
+  &lt;line x1="38" y1="62" x2="38" y2="84" stroke="#1F2A38" stroke-width="4.5" stroke-linecap="round"/&gt;
+&lt;/svg&gt;</div>
+  </section>
+
+</div>
+</body>
+</html>
