@@ -199,18 +199,46 @@
   .product-card:hover{border-color:var(--laiton); transform:translateY(-3px);}
   .product-img{
     aspect-ratio:4/3; background:var(--ivoire);
-    display:flex; align-items:center; justify-content:center;
     border-bottom:1px solid var(--ligne);
     position:relative; overflow:hidden;
   }
   .product-img img{width:100%; height:100%; object-fit:cover;}
   .product-img .img-fallback{width:64px; height:64px; stroke:var(--ocre);}
   .material-tag{
-    position:absolute; top:12px; left:12px;
+    position:absolute; top:12px; left:12px; z-index:3;
     padding:5px 11px; border-radius:2px;
     background:rgba(242,233,218,0.92); border:1px solid var(--ligne);
     font-size:0.72rem; font-weight:600; color:var(--indigo);
   }
+
+  /* ---- Carrousel photo par article ---- */
+  .slide{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; transition:opacity 0.3s ease;
+  }
+  .slide.active{opacity:1; z-index:1;}
+  .slide-arrow{
+    position:absolute; top:50%; transform:translateY(-50%); z-index:3;
+    width:30px; height:30px; border-radius:50%;
+    background:rgba(242,233,218,0.9); border:1px solid var(--ligne);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1rem; line-height:1; color:var(--indigo);
+    transition:background 0.2s ease;
+  }
+  .slide-arrow:hover{background:var(--ivoire);}
+  .slide-arrow.prev{left:10px;}
+  .slide-arrow.next{right:10px;}
+  .slide-dots{
+    position:absolute; bottom:11px; left:50%; transform:translateX(-50%); z-index:3;
+    display:flex; gap:6px;
+  }
+  .slide-dots .dot{
+    width:7px; height:7px; border-radius:50%;
+    background:rgba(242,233,218,0.55); border:1px solid rgba(33,26,21,0.25);
+    transition:background 0.2s ease, border-color 0.2s ease;
+  }
+  .slide-dots .dot.active{background:var(--ocre); border-color:var(--ocre);}
   .product-body{padding:22px 24px 24px; display:flex; flex-direction:column; flex:1;}
   .product-card .name{font-family:'Newsreader', serif; font-size:1.15rem;}
   .product-card .desc{font-size:0.87rem; color:rgba(33,26,21,0.6); margin-top:8px; line-height:1.55;}
@@ -419,13 +447,36 @@
 
     <div class="products">
       <div class="product-card" data-category="sac">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : <img src="images/le-cabas.jpg" alt="Le Cabas, sac cabas en cuir"> -->
+        <div class="product-img carousel">
           <span class="material-tag" data-i18n="mat.cuir">Cuir véritable</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
-            <rect x="18" y="38" width="64" height="46" rx="4"/>
-            <path d="M30 38 V26 C30 14 70 14 70 26 V38"/>
-          </svg>
+          <div class="slide active">
+            <!-- Remplacer par une vraie photo produit : <img src="images/le-cabas-1.jpg" alt="Le Cabas, vue de face"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="18" y="38" width="64" height="46" rx="4"/>
+              <path d="M30 38 V26 C30 14 70 14 70 26 V38"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/le-cabas-2.jpg" alt="Le Cabas, vue de profil"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="18" y="38" width="64" height="46" rx="4" transform="rotate(-6 50 61)"/>
+              <path d="M30 38 V26 C30 14 70 14 70 26 V38" transform="rotate(-6 50 32)"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/le-cabas-3.jpg" alt="Le Cabas, détail de l'intérieur"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="24" y="30" width="52" height="52" rx="4"/>
+              <line x1="24" y1="56" x2="76" y2="56" stroke-opacity="0.5"/>
+            </svg>
+          </div>
+          <button class="slide-arrow prev" data-dir="-1" aria-label="Photo précédente">‹</button>
+          <button class="slide-arrow next" data-dir="1" aria-label="Photo suivante">›</button>
+          <div class="slide-dots">
+            <button class="dot active" data-index="0" aria-label="Photo 1"></button>
+            <button class="dot" data-index="1" aria-label="Photo 2"></button>
+            <button class="dot" data-index="2" aria-label="Photo 3"></button>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">Le Cabas</div>
@@ -435,13 +486,36 @@
         </div>
       </div>
       <div class="product-card" data-category="sac">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : <img src="images/la-besace.jpg" alt="La Besace, sac besace en cuir"> -->
+        <div class="product-img carousel">
           <span class="material-tag" data-i18n="mat.cuir">Cuir véritable</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
-            <path d="M22 42 Q50 20 78 42 V80 Q50 90 22 80 Z"/>
-            <path d="M28 42 V30 C28 18 72 18 72 30 V42"/>
-          </svg>
+          <div class="slide active">
+            <!-- Remplacer par une vraie photo produit : <img src="images/la-besace-1.jpg" alt="La Besace, vue de face"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <path d="M22 42 Q50 20 78 42 V80 Q50 90 22 80 Z"/>
+              <path d="M28 42 V30 C28 18 72 18 72 30 V42"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/la-besace-2.jpg" alt="La Besace, portée à l'épaule"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <path d="M22 42 Q50 20 78 42 V80 Q50 90 22 80 Z" transform="rotate(8 50 55)"/>
+              <path d="M28 42 V30 C28 18 72 18 72 30 V42" transform="rotate(8 50 36)"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/la-besace-3.jpg" alt="La Besace, détail du fermoir"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <circle cx="50" cy="50" r="14"/>
+              <line x1="50" y1="36" x2="50" y2="30" stroke-opacity="0.5"/>
+            </svg>
+          </div>
+          <button class="slide-arrow prev" data-dir="-1" aria-label="Photo précédente">‹</button>
+          <button class="slide-arrow next" data-dir="1" aria-label="Photo suivante">›</button>
+          <div class="slide-dots">
+            <button class="dot active" data-index="0" aria-label="Photo 1"></button>
+            <button class="dot" data-index="1" aria-label="Photo 2"></button>
+            <button class="dot" data-index="2" aria-label="Photo 3"></button>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">La Besace</div>
@@ -451,13 +525,36 @@
         </div>
       </div>
       <div class="product-card" data-category="sac">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : <img src="images/le-mini.jpg" alt="Le Mini, mini sac en simili-cuir"> -->
+        <div class="product-img carousel">
           <span class="material-tag" data-i18n="mat.simili">Simili-cuir premium</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
-            <rect x="30" y="46" width="40" height="30" rx="3"/>
-            <path d="M36 46 V38 C36 30 64 30 64 38 V46"/>
-          </svg>
+          <div class="slide active">
+            <!-- Remplacer par une vraie photo produit : <img src="images/le-mini-1.jpg" alt="Le Mini, vue de face"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="30" y="46" width="40" height="30" rx="3"/>
+              <path d="M36 46 V38 C36 30 64 30 64 38 V46"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/le-mini-2.jpg" alt="Le Mini, vue de profil"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="30" y="46" width="40" height="30" rx="3" transform="rotate(-8 50 61)"/>
+              <path d="M36 46 V38 C36 30 64 30 64 38 V46" transform="rotate(-8 50 42)"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/le-mini-3.jpg" alt="Le Mini, porté à la main"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="34" y="42" width="32" height="26" rx="3"/>
+              <line x1="38" y1="55" x2="62" y2="55" stroke-opacity="0.5"/>
+            </svg>
+          </div>
+          <button class="slide-arrow prev" data-dir="-1" aria-label="Photo précédente">‹</button>
+          <button class="slide-arrow next" data-dir="1" aria-label="Photo suivante">›</button>
+          <div class="slide-dots">
+            <button class="dot active" data-index="0" aria-label="Photo 1"></button>
+            <button class="dot" data-index="1" aria-label="Photo 2"></button>
+            <button class="dot" data-index="2" aria-label="Photo 3"></button>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">Le Mini</div>
@@ -467,13 +564,36 @@
         </div>
       </div>
       <div class="product-card" data-category="sac">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : <img src="images/la-pochette.jpg" alt="La Pochette, pochette de soirée en simili-cuir"> -->
+        <div class="product-img carousel">
           <span class="material-tag" data-i18n="mat.simili">Simili-cuir premium</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
-            <rect x="26" y="40" width="48" height="32" rx="2"/>
-            <line x1="26" y1="52" x2="74" y2="52" stroke-opacity="0.5"/>
-          </svg>
+          <div class="slide active">
+            <!-- Remplacer par une vraie photo produit : <img src="images/la-pochette-1.jpg" alt="La Pochette, vue de face"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="26" y="40" width="48" height="32" rx="2"/>
+              <line x1="26" y1="52" x2="74" y2="52" stroke-opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/la-pochette-2.jpg" alt="La Pochette, portée à la main"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="26" y="40" width="48" height="32" rx="2" transform="rotate(6 50 56)"/>
+              <line x1="26" y1="52" x2="74" y2="52" stroke-opacity="0.5" transform="rotate(6 50 52)"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/la-pochette-3.jpg" alt="La Pochette, détail du fermoir doré"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="42" y="46" width="16" height="10" rx="2"/>
+              <line x1="36" y1="60" x2="64" y2="60" stroke-opacity="0.5"/>
+            </svg>
+          </div>
+          <button class="slide-arrow prev" data-dir="-1" aria-label="Photo précédente">‹</button>
+          <button class="slide-arrow next" data-dir="1" aria-label="Photo suivante">›</button>
+          <div class="slide-dots">
+            <button class="dot active" data-index="0" aria-label="Photo 1"></button>
+            <button class="dot" data-index="1" aria-label="Photo 2"></button>
+            <button class="dot" data-index="2" aria-label="Photo 3"></button>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">La Pochette</div>
@@ -483,14 +603,37 @@
         </div>
       </div>
       <div class="product-card" data-category="sac">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : <img src="images/le-seau.jpg" alt="Le Seau, sac seau en cuir"> -->
+        <div class="product-img carousel">
           <span class="material-tag" data-i18n="mat.cuir">Cuir véritable</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
-            <path d="M28 46 C28 70 72 70 72 46"/>
-            <path d="M24 46 Q50 34 76 46 L72 46 Q50 40 28 46 Z"/>
-            <path d="M40 46 V36 C40 28 60 28 60 36 V46"/>
-          </svg>
+          <div class="slide active">
+            <!-- Remplacer par une vraie photo produit : <img src="images/le-seau-1.jpg" alt="Le Seau, vue de face"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <path d="M28 46 C28 70 72 70 72 46"/>
+              <path d="M24 46 Q50 34 76 46 L72 46 Q50 40 28 46 Z"/>
+              <path d="M40 46 V36 C40 28 60 28 60 36 V46"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/le-seau-2.jpg" alt="Le Seau, vue de profil"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <path d="M28 46 C28 70 72 70 72 46" transform="rotate(-6 50 58)"/>
+              <path d="M24 46 Q50 34 76 46 L72 46 Q50 40 28 46 Z" transform="rotate(-6 50 42)"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/le-seau-3.jpg" alt="Le Seau, détail de la fermeture coulissante"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <circle cx="50" cy="50" r="16"/>
+              <line x1="50" y1="42" x2="50" y2="34" stroke-opacity="0.5"/>
+            </svg>
+          </div>
+          <button class="slide-arrow prev" data-dir="-1" aria-label="Photo précédente">‹</button>
+          <button class="slide-arrow next" data-dir="1" aria-label="Photo suivante">›</button>
+          <div class="slide-dots">
+            <button class="dot active" data-index="0" aria-label="Photo 1"></button>
+            <button class="dot" data-index="1" aria-label="Photo 2"></button>
+            <button class="dot" data-index="2" aria-label="Photo 3"></button>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">Le Seau</div>
@@ -500,14 +643,37 @@
         </div>
       </div>
       <div class="product-card" data-category="parfum">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : <img src="images/parfum-ambre.jpg" alt="Ambre de Paris, eau de parfum"> -->
+        <div class="product-img carousel">
           <span class="material-tag" data-i18n="mat.parfum">Eau de parfum</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
-            <rect x="38" y="34" width="24" height="16" rx="2"/>
-            <path d="M44 34 V24 C44 20 56 20 56 24 V34"/>
-            <rect x="32" y="50" width="36" height="32" rx="4"/>
-          </svg>
+          <div class="slide active">
+            <!-- Remplacer par une vraie photo produit : <img src="images/parfum-ambre-1.jpg" alt="Ambre de Paris, flacon de face"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="38" y="34" width="24" height="16" rx="2"/>
+              <path d="M44 34 V24 C44 20 56 20 56 24 V34"/>
+              <rect x="32" y="50" width="36" height="32" rx="4"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/parfum-ambre-2.jpg" alt="Ambre de Paris, détail du flacon"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="34" y="44" width="32" height="38" rx="4"/>
+              <line x1="40" y1="60" x2="60" y2="60" stroke-opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/parfum-ambre-3.jpg" alt="Ambre de Paris, packaging"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="30" y="30" width="40" height="50" rx="3"/>
+              <line x1="30" y1="44" x2="70" y2="44" stroke-opacity="0.5"/>
+            </svg>
+          </div>
+          <button class="slide-arrow prev" data-dir="-1" aria-label="Photo précédente">‹</button>
+          <button class="slide-arrow next" data-dir="1" aria-label="Photo suivante">›</button>
+          <div class="slide-dots">
+            <button class="dot active" data-index="0" aria-label="Photo 1"></button>
+            <button class="dot" data-index="1" aria-label="Photo 2"></button>
+            <button class="dot" data-index="2" aria-label="Photo 3"></button>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">Ambre de Paris</div>
@@ -517,14 +683,37 @@
         </div>
       </div>
       <div class="product-card" data-category="parfum">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : <img src="images/parfum-fleur.jpg" alt="Fleur de Seine, eau de parfum"> -->
+        <div class="product-img carousel">
           <span class="material-tag" data-i18n="mat.parfum">Eau de parfum</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
-            <rect x="38" y="34" width="24" height="16" rx="2"/>
-            <path d="M44 34 V24 C44 20 56 20 56 24 V34"/>
-            <rect x="32" y="50" width="36" height="32" rx="4"/>
-          </svg>
+          <div class="slide active">
+            <!-- Remplacer par une vraie photo produit : <img src="images/parfum-fleur-1.jpg" alt="Fleur de Seine, flacon de face"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="38" y="34" width="24" height="16" rx="2"/>
+              <path d="M44 34 V24 C44 20 56 20 56 24 V34"/>
+              <rect x="32" y="50" width="36" height="32" rx="4"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/parfum-fleur-2.jpg" alt="Fleur de Seine, détail du flacon"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="34" y="44" width="32" height="38" rx="4"/>
+              <line x1="40" y1="60" x2="60" y2="60" stroke-opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="slide">
+            <!-- Remplacer par une vraie photo produit : <img src="images/parfum-fleur-3.jpg" alt="Fleur de Seine, packaging"> -->
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2">
+              <rect x="30" y="30" width="40" height="50" rx="3"/>
+              <line x1="30" y1="44" x2="70" y2="44" stroke-opacity="0.5"/>
+            </svg>
+          </div>
+          <button class="slide-arrow prev" data-dir="-1" aria-label="Photo précédente">‹</button>
+          <button class="slide-arrow next" data-dir="1" aria-label="Photo suivante">›</button>
+          <div class="slide-dots">
+            <button class="dot active" data-index="0" aria-label="Photo 1"></button>
+            <button class="dot" data-index="1" aria-label="Photo 2"></button>
+            <button class="dot" data-index="2" aria-label="Photo 3"></button>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">Fleur de Seine</div>
@@ -845,6 +1034,33 @@
 
   // Le français est la langue par défaut à l'ouverture du site
   applyLanguage('fr');
+
+  // ---------- Carrousel photo par article ----------
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    const slides = carousel.querySelectorAll('.slide');
+    const dots = carousel.querySelectorAll('.dot');
+    let current = 0;
+
+    function goTo(index){
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+    }
+
+    carousel.querySelectorAll('.slide-arrow').forEach(arrow => {
+      arrow.addEventListener('click', (e) => {
+        e.preventDefault();
+        goTo(current + Number(arrow.dataset.dir));
+      });
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        goTo(Number(dot.dataset.index));
+      });
+    });
+  });
 </script>
 
 </body>

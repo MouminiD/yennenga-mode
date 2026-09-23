@@ -129,6 +129,14 @@
   - data-order-product doit correspondre exactement à une <option> du
     champ "Modèle souhaité" du formulaire de contact plus bas
   - le badge matière (.material-tag) utilise une clé mat.cuir / mat.simili / mat.parfum
+  - PHOTOS (carrousel) : chaque bloc .product-img.carousel porte un attribut
+    data-images contenant un tableau JSON de chemins d'image, ex.
+    data-images='["images/produits/le-cabas-1.jpg","images/produits/le-cabas-2.jpg"]'
+    Tant que le tableau est vide ("[]"), l'icône de secours (<svg class="img-fallback">)
+    déjà présente dans le HTML reste affichée. Dès qu'on y ajoute des chemins,
+    js/main.js construit automatiquement les diapositives ; les flèches et les
+    points de navigation n'apparaissent que s'il y a au moins 2 photos.
+    Convention de nommage suggérée : nom-produit-1.jpg, nom-produit-2.jpg, etc.
 -->
 <section class="collections" id="collections">
   <div class="wrap">
@@ -145,9 +153,14 @@
 
     <div class="products">
       <div class="product-card" data-category="sac">
-        <div class="product-img">
+        <div class="product-img carousel" data-images='["images/produits/le-cabas-1.jpg"]'>
           <span class="material-tag" data-i18n="mat.cuir">Cuir véritable</span>
-          <img src="images/produits/le-cabas.jpg" alt="Le Cabas, sac cabas en cuir">
+          <div class="slide active">
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
+              <rect x="18" y="38" width="64" height="46" rx="4"/>
+              <path d="M30 38 V26 C30 14 70 14 70 26 V38"/>
+            </svg>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">Le Cabas</div>
@@ -157,13 +170,14 @@
         </div>
       </div>
       <div class="product-card" data-category="sac">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : images/produits/la-besace.jpg -->
+        <div class="product-img carousel" data-images="[]">
           <span class="material-tag" data-i18n="mat.cuir">Cuir véritable</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
-            <path d="M22 42 Q50 20 78 42 V80 Q50 90 22 80 Z"/>
-            <path d="M28 42 V30 C28 18 72 18 72 30 V42"/>
-          </svg>
+          <div class="slide active">
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
+              <path d="M22 42 Q50 20 78 42 V80 Q50 90 22 80 Z"/>
+              <path d="M28 42 V30 C28 18 72 18 72 30 V42"/>
+            </svg>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">La Besace</div>
@@ -173,13 +187,14 @@
         </div>
       </div>
       <div class="product-card" data-category="sac">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : images/produits/le-mini.jpg -->
+        <div class="product-img carousel" data-images="[]">
           <span class="material-tag" data-i18n="mat.simili">Simili-cuir premium</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
-            <rect x="30" y="46" width="40" height="30" rx="3"/>
-            <path d="M36 46 V38 C36 30 64 30 64 38 V46"/>
-          </svg>
+          <div class="slide active">
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
+              <rect x="30" y="46" width="40" height="30" rx="3"/>
+              <path d="M36 46 V38 C36 30 64 30 64 38 V46"/>
+            </svg>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">Le Mini</div>
@@ -189,13 +204,14 @@
         </div>
       </div>
       <div class="product-card" data-category="sac">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : images/produits/la-pochette.jpg -->
+        <div class="product-img carousel" data-images="[]">
           <span class="material-tag" data-i18n="mat.simili">Simili-cuir premium</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
-            <rect x="26" y="40" width="48" height="32" rx="2"/>
-            <line x1="26" y1="52" x2="74" y2="52" stroke-opacity="0.5"/>
-          </svg>
+          <div class="slide active">
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
+              <rect x="26" y="40" width="48" height="32" rx="2"/>
+              <line x1="26" y1="52" x2="74" y2="52" stroke-opacity="0.5"/>
+            </svg>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">La Pochette</div>
@@ -205,14 +221,15 @@
         </div>
       </div>
       <div class="product-card" data-category="sac">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : images/produits/le-seau.jpg -->
+        <div class="product-img carousel" data-images="[]">
           <span class="material-tag" data-i18n="mat.cuir">Cuir véritable</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
-            <path d="M28 46 C28 70 72 70 72 46"/>
-            <path d="M24 46 Q50 34 76 46 L72 46 Q50 40 28 46 Z"/>
-            <path d="M40 46 V36 C40 28 60 28 60 36 V46"/>
-          </svg>
+          <div class="slide active">
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
+              <path d="M28 46 C28 70 72 70 72 46"/>
+              <path d="M24 46 Q50 34 76 46 L72 46 Q50 40 28 46 Z"/>
+              <path d="M40 46 V36 C40 28 60 28 60 36 V46"/>
+            </svg>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">Le Seau</div>
@@ -222,14 +239,15 @@
         </div>
       </div>
       <div class="product-card" data-category="parfum">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : images/produits/parfum-ambre.jpg -->
+        <div class="product-img carousel" data-images="[]">
           <span class="material-tag" data-i18n="mat.parfum">Eau de parfum</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
-            <rect x="38" y="34" width="24" height="16" rx="2"/>
-            <path d="M44 34 V24 C44 20 56 20 56 24 V34"/>
-            <rect x="32" y="50" width="36" height="32" rx="4"/>
-          </svg>
+          <div class="slide active">
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
+              <rect x="38" y="34" width="24" height="16" rx="2"/>
+              <path d="M44 34 V24 C44 20 56 20 56 24 V34"/>
+              <rect x="32" y="50" width="36" height="32" rx="4"/>
+            </svg>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">Ambre de Paris</div>
@@ -239,14 +257,15 @@
         </div>
       </div>
       <div class="product-card" data-category="parfum">
-        <div class="product-img">
-          <!-- Remplacer par une vraie photo produit : images/produits/parfum-fleur.jpg -->
+        <div class="product-img carousel" data-images="[]">
           <span class="material-tag" data-i18n="mat.parfum">Eau de parfum</span>
-          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
-            <rect x="38" y="34" width="24" height="16" rx="2"/>
-            <path d="M44 34 V24 C44 20 56 20 56 24 V34"/>
-            <rect x="32" y="50" width="36" height="32" rx="4"/>
-          </svg>
+          <div class="slide active">
+            <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
+              <rect x="38" y="34" width="24" height="16" rx="2"/>
+              <path d="M44 34 V24 C44 20 56 20 56 24 V34"/>
+              <rect x="32" y="50" width="36" height="32" rx="4"/>
+            </svg>
+          </div>
         </div>
         <div class="product-body">
           <div class="name">Fleur de Seine</div>

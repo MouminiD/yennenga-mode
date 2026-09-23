@@ -102,6 +102,9 @@ const translations = {
     "form.statusError": "L'envoi a échoué. Écrivez-nous directement sur WhatsApp, c'est plus sûr.",
     "footer.line1": "© 2026 Yennenga Mode — Sacs & parfums importés de France",
     "whatsapp.defaultMessage": "Bonjour, je souhaite avoir plus d'informations sur vos sacs et parfums.",
+    "carousel.prev": "Photo précédente",
+    "carousel.next": "Photo suivante",
+    "carousel.photo": "Photo",
   },
   en: {
     "meta.title": "Yennenga Mode — Bags & perfumes imported from France, Ouagadougou",
@@ -178,6 +181,9 @@ const translations = {
     "form.statusError": "Something went wrong. Message us directly on WhatsApp, it's more reliable.",
     "footer.line1": "© 2026 Yennenga Mode — Bags & perfumes imported from France",
     "whatsapp.defaultMessage": "Hello, I'd like more information about your bags and perfumes.",
+    "carousel.prev": "Previous photo",
+    "carousel.next": "Next photo",
+    "carousel.photo": "Photo",
   },
 };
 
@@ -190,6 +196,7 @@ function t(key) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initProductCarousels();
   initLanguage();
   initBurgerMenu();
   initWhatsappLinks();
@@ -235,6 +242,13 @@ function applyLanguage(lang) {
   document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
     el.setAttribute("aria-label", t(el.dataset.i18nAriaLabel));
   });
+  // Les points du carrousel portent un numéro dans leur libellé ("Photo 2"),
+  // donc ils ne passent pas par le mécanisme générique ci-dessus.
+  document.querySelectorAll(".slide-dots").forEach((wrap) => {
+    wrap.querySelectorAll(".dot").forEach((dot, i) => {
+      dot.setAttribute("aria-label", `${t("carousel.photo")} ${i + 1}`);
+    });
+  });
 
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     const isActive = btn.dataset.lang === lang;
@@ -247,6 +261,82 @@ function applyLanguage(lang) {
   } catch (e) {
     // pas grave si on ne peut pas mémoriser la préférence
   }
+}
+
+/* ---------- Carrousel photo par article ----------
+   Chaque .product-img.carousel porte un attribut data-images contenant un
+   tableau JSON de chemins d'image (voir commentaire dans index.html). Tant que
+   ce tableau est vide, l'icône de secours déjà présente en HTML reste affichée.
+   Dès qu'il contient au moins une photo, les diapositives sont construites ici ;
+   les flèches et les points n'apparaissent que s'il y a au moins 2 photos. */
+function initProductCarousels() {
+  document.querySelectorAll(".carousel").forEach((container) => {
+    let images = [];
+    try {
+      images = JSON.parse(container.dataset.images || "[]");
+    } catch (e) {
+      images = [];
+    }
+    if (!Array.isArray(images) || images.length === 0) return;
+
+    const productName =
+      container.closest(".product-card")?.querySelector(".name")?.textContent || "";
+
+    // Remplace l'icône de secours par les vraies photos
+    container.querySelectorAll(".slide").forEach((el) => el.remove());
+    const slides = images.map((src, i) => {
+      const slide = document.createElement("div");
+      slide.className = "slide" + (i === 0 ? " active" : "");
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = productName;
+      img.loading = "lazy";
+      slide.appendChild(img);
+      container.appendChild(slide);
+      return slide;
+    });
+
+    if (images.length < 2) return;
+
+    let current = 0;
+    const dots = images.map((_, i) => {
+      const dot = document.createElement("button");
+      dot.className = "dot" + (i === 0 ? " active" : "");
+      dot.type = "button";
+      dot.setAttribute("aria-label", `${t("carousel.photo")} ${i + 1}`);
+      dot.addEventListener("click", (e) => {
+        e.preventDefault();
+        goTo(i);
+      });
+      return dot;
+    });
+    const dotsWrap = document.createElement("div");
+    dotsWrap.className = "slide-dots";
+    dots.forEach((dot) => dotsWrap.appendChild(dot));
+    container.appendChild(dotsWrap);
+
+    function makeArrow(dir, className, i18nKey) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `slide-arrow ${className}`;
+      btn.textContent = dir === -1 ? "‹" : "›";
+      btn.dataset.i18nAriaLabel = i18nKey;
+      btn.setAttribute("aria-label", t(i18nKey));
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        goTo(current + dir);
+      });
+      container.appendChild(btn);
+    }
+    makeArrow(-1, "prev", "carousel.prev");
+    makeArrow(1, "next", "carousel.next");
+
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
+    }
+  });
 }
 
 /* ---------- Filtre de la collection (Tout voir / Sacs / Parfums) ---------- */
