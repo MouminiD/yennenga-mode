@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yennenga Mode — Maroquinerie française, Ouagadougou</title>
-<meta name="description" content="Sacs à main en cuir sélectionnés à Paris et importés à Ouagadougou. Commande sur WhatsApp, paiement Orange Money, Moov Money ou espèces en boutique.">
+<title data-i18n="meta.title">Yennenga Mode — Sacs &amp; parfums importés de France, Ouagadougou</title>
+<meta name="description" content="Sacs en cuir et simili-cuir, parfums importés de Paris, vendus à Ouagadougou. Commande sur WhatsApp, paiement Orange Money, Moov Money ou espèces en boutique.">
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<a class="skip-link" href="#contenu">Aller au contenu principal</a>
+<a class="skip-link" href="#contenu" data-i18n="skip.link">Aller au contenu principal</a>
 
 <header>
   <div class="nav">
@@ -31,14 +31,18 @@
       </span>
     </a>
     <nav class="nav-links" aria-label="Navigation principale">
-      <a href="#collections">Collections</a>
-      <a href="#trajet">L'import</a>
-      <a href="#boutique">Boutique</a>
-      <a href="#suivez">Contact</a>
+      <a href="#collections" data-i18n="nav.collections">Collections</a>
+      <a href="#trajet" data-i18n="nav.import">L'import</a>
+      <a href="#boutique" data-i18n="nav.boutique">Boutique</a>
+      <a href="#suivez" data-i18n="nav.contact">Contact</a>
       <!-- href de secours si JS désactivé ; mis à jour dynamiquement par js/main.js (CONFIG.whatsappNumber) -->
-      <a href="https://wa.me/22670000000" data-whatsapp-link class="nav-cta">Commander sur WhatsApp</a>
+      <a href="https://wa.me/22670000000" data-whatsapp-link class="nav-cta" data-i18n="nav.cta">Commander sur WhatsApp</a>
     </nav>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="lang-switch" role="group" data-i18n-aria-label="lang.groupLabel" aria-label="Choix de la langue">
+      <button class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
+      <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button class="burger" data-i18n-aria-label="burger.ariaLabel" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 <div class="motif"></div>
@@ -48,13 +52,13 @@
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-text">
-      <h1>Le cuir parisien, choisi pour Ouaga.</h1>
-      <p class="lede">Nous sélectionnons chaque sac dans les ateliers et boutiques de Paris, et le rapportons nous-mêmes à Ouagadougou — pièce authentifiée, prix affiché en FCFA.</p>
+      <h1 data-i18n="hero.title">Le cuir parisien, choisi pour Ouaga.</h1>
+      <p class="lede" data-i18n="hero.lede">Nous sélectionnons chaque sac dans les ateliers et boutiques de Paris, et le rapportons nous-mêmes à Ouagadougou — pièce authentifiée, prix affiché en FCFA.</p>
       <div class="hero-actions">
-        <a href="#collections" class="btn-primary">Voir la collection</a>
-        <a href="https://wa.me/22670000000" data-whatsapp-link class="btn-ghost">Nous écrire sur WhatsApp</a>
+        <a href="#collections" class="btn-primary" data-i18n="hero.btn1">Voir la collection</a>
+        <a href="https://wa.me/22670000000" data-whatsapp-link class="btn-ghost" data-i18n="hero.btn2">Nous écrire sur WhatsApp</a>
       </div>
-      <div class="hero-credo">Un nouveau lot importé chaque mois — quantités limitées, pas de réassort garanti.</div>
+      <div class="hero-credo" data-i18n="hero.credo">Un nouveau lot importé chaque mois — quantités limitées, pas de réassort garanti.</div>
     </div>
     <div class="hero-art">
       <svg viewBox="0 0 400 380" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.4" aria-hidden="true">
@@ -74,13 +78,13 @@
 <section class="trajet" id="trajet">
   <div class="wrap">
     <div class="section-head">
-      <h2>De Paris à Ouagadougou</h2>
-      <p>Pas d'intermédiaire ni de grossiste — chaque pièce est choisie par nous, en France.</p>
+      <h2 data-i18n="trajet.h2">De Paris à Ouagadougou</h2>
+      <p data-i18n="trajet.p">Pas d'intermédiaire ni de grossiste — chaque pièce est choisie par nous, en France.</p>
     </div>
     <div class="route">
       <div class="route-city">
         <div class="name">Paris</div>
-        <div class="tag">Sélection en boutique et chez l'artisan</div>
+        <div class="tag" data-i18n="trajet.parisTag">Sélection en boutique et chez l'artisan</div>
       </div>
       <div class="route-line">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -89,21 +93,21 @@
       </div>
       <div class="route-city">
         <div class="name">Ouagadougou</div>
-        <div class="tag">Vente en boutique, Zone du Bois</div>
+        <div class="tag" data-i18n="trajet.ouagaTag">Vente en boutique, Zone du Bois</div>
       </div>
     </div>
     <div class="steps">
       <div class="step">
-        <h3>1. La sélection</h3>
-        <p>Chaque modèle est examiné à la main avant l'achat : cuir, coutures, fermoirs.</p>
+        <h3 data-i18n="trajet.step1h">1. La sélection</h3>
+        <p data-i18n="trajet.step1p">Chaque modèle est examiné à la main avant l'achat : cuir, coutures, fermoirs.</p>
       </div>
       <div class="step">
-        <h3>2. Le transport</h3>
-        <p>Les sacs voyagent avec nous, pas par fret anonyme — nous savons ce qui arrive et dans quel état.</p>
+        <h3 data-i18n="trajet.step2h">2. Le transport</h3>
+        <p data-i18n="trajet.step2p">Les sacs voyagent avec nous, pas par fret anonyme — nous savons ce qui arrive et dans quel état.</p>
       </div>
       <div class="step">
-        <h3>3. La mise en boutique</h3>
-        <p>Prix affiché en FCFA dès l'arrivée, sans marge cachée ajoutée en cours de route.</p>
+        <h3 data-i18n="trajet.step3h">3. La mise en boutique</h3>
+        <p data-i18n="trajet.step3p">Prix affiché en FCFA dès l'arrivée, sans marge cachée ajoutée en cours de route.</p>
       </div>
     </div>
   </div>
@@ -114,23 +118,36 @@
 <!--
   SECTION COLLECTION — à personnaliser :
   - prix (.price) en FCFA, provisoires
-  - description (.desc)
+  - description (.desc), en français dans le HTML : sert de repère, la traduction
+    affichée vient du dictionnaire dans js/main.js (clé data-i18n correspondante)
   - image : remplacer le <svg class="img-fallback"> par
-    <img src="images/produits/NOM-DU-FICHIER.jpg" alt="description du sac">
+    <img src="images/produits/NOM-DU-FICHIER.jpg" alt="description du produit">
     une fois les vraies photos disponibles (voir dossier images/produits/)
+  - data-category ("sac" / "parfum") pilote les onglets de filtre ; pour ajouter
+    une nouvelle catégorie plus tard, ajouter un bouton .cat-tab data-filter
+    correspondant et l'utiliser sur les cartes concernées
   - data-order-product doit correspondre exactement à une <option> du
     champ "Modèle souhaité" du formulaire de contact plus bas
+  - le badge matière (.material-tag) utilise une clé mat.cuir / mat.simili / mat.parfum
 -->
 <section class="collections" id="collections">
   <div class="wrap">
     <div class="section-head">
-      <h2>Le lot actuel</h2>
-      <p>Cinq pièces disponibles ce mois-ci — une fois vendues, elles ne reviennent pas forcément.</p>
+      <h2 data-i18n="coll.h2">Le lot actuel</h2>
+      <p data-i18n="coll.p">Sacs en cuir véritable, sacs en simili-cuir haute qualité et parfums — une sélection resserrée, une fois vendue elle ne revient pas forcément.</p>
     </div>
+
+    <div class="cat-tabs" role="tablist" aria-label="Filtrer la collection">
+      <button class="cat-tab active" data-filter="tous" data-i18n="coll.tabAll">Tout voir</button>
+      <button class="cat-tab" data-filter="sac" data-i18n="coll.tabBags">Sacs</button>
+      <button class="cat-tab" data-filter="parfum" data-i18n="coll.tabPerfumes">Parfums</button>
+    </div>
+
     <div class="products">
-      <div class="product-card">
+      <div class="product-card" data-category="sac">
         <div class="product-img">
           <!-- Remplacer par une vraie photo produit : images/produits/le-cabas.jpg -->
+          <span class="material-tag" data-i18n="mat.cuir">Cuir véritable</span>
           <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
             <rect x="18" y="38" width="64" height="46" rx="4"/>
             <path d="M30 38 V26 C30 14 70 14 70 26 V38"/>
@@ -138,14 +155,15 @@
         </div>
         <div class="product-body">
           <div class="name">Le Cabas</div>
-          <div class="desc">Format quotidien, doublure intérieure renforcée. Cuir pleine fleur sélectionné à Paris.</div>
+          <div class="desc" data-i18n="p.cabas.desc">Format quotidien, doublure intérieure renforcée. Cuir pleine fleur sélectionné à Paris.</div>
           <div class="price">195 000 FCFA</div>
-          <a href="#suivez" class="product-buy" data-order-product="Le Cabas">Commander</a>
+          <a href="#suivez" class="product-buy" data-order-product="Le Cabas" data-i18n="p.order">Commander</a>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="sac">
         <div class="product-img">
           <!-- Remplacer par une vraie photo produit : images/produits/la-besace.jpg -->
+          <span class="material-tag" data-i18n="mat.cuir">Cuir véritable</span>
           <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
             <path d="M22 42 Q50 20 78 42 V80 Q50 90 22 80 Z"/>
             <path d="M28 42 V30 C28 18 72 18 72 30 V42"/>
@@ -153,14 +171,15 @@
         </div>
         <div class="product-body">
           <div class="name">La Besace</div>
-          <div class="desc">Bandoulière ajustable, portée épaule ou croisée. Une seule pièce disponible.</div>
+          <div class="desc" data-i18n="p.besace.desc">Bandoulière ajustable, portée épaule ou croisée. Une seule pièce disponible.</div>
           <div class="price">140 000 FCFA</div>
-          <a href="#suivez" class="product-buy" data-order-product="La Besace">Commander</a>
+          <a href="#suivez" class="product-buy" data-order-product="La Besace" data-i18n="p.order">Commander</a>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="sac">
         <div class="product-img">
           <!-- Remplacer par une vraie photo produit : images/produits/le-mini.jpg -->
+          <span class="material-tag" data-i18n="mat.simili">Simili-cuir premium</span>
           <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
             <rect x="30" y="46" width="40" height="30" rx="3"/>
             <path d="M36 46 V38 C36 30 64 30 64 38 V46"/>
@@ -168,14 +187,15 @@
         </div>
         <div class="product-body">
           <div class="name">Le Mini</div>
-          <div class="desc">Format compact, présence maximale. Une seule pièce en stock.</div>
-          <div class="price">95 000 FCFA</div>
-          <a href="#suivez" class="product-buy" data-order-product="Le Mini">Commander</a>
+          <div class="desc" data-i18n="p.mini.desc">Format compact, présence maximale. Simili-cuir haute qualité, aussi résistant qu'élégant.</div>
+          <div class="price">65 000 FCFA</div>
+          <a href="#suivez" class="product-buy" data-order-product="Le Mini" data-i18n="p.order">Commander</a>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="sac">
         <div class="product-img">
           <!-- Remplacer par une vraie photo produit : images/produits/la-pochette.jpg -->
+          <span class="material-tag" data-i18n="mat.simili">Simili-cuir premium</span>
           <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
             <rect x="26" y="40" width="48" height="32" rx="2"/>
             <line x1="26" y1="52" x2="74" y2="52" stroke-opacity="0.5"/>
@@ -183,14 +203,15 @@
         </div>
         <div class="product-body">
           <div class="name">La Pochette</div>
-          <div class="desc">Idéale pour les cérémonies et soirées. Fermoir doré, intérieur satiné.</div>
-          <div class="price">70 000 FCFA</div>
-          <a href="#suivez" class="product-buy" data-order-product="La Pochette">Commander</a>
+          <div class="desc" data-i18n="p.pochette.desc">Idéale pour les cérémonies et soirées. Fermoir doré, intérieur satiné.</div>
+          <div class="price">50 000 FCFA</div>
+          <a href="#suivez" class="product-buy" data-order-product="La Pochette" data-i18n="p.order">Commander</a>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-category="sac">
         <div class="product-img">
           <!-- Remplacer par une vraie photo produit : images/produits/le-seau.jpg -->
+          <span class="material-tag" data-i18n="mat.cuir">Cuir véritable</span>
           <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
             <path d="M28 46 C28 70 72 70 72 46"/>
             <path d="M24 46 Q50 34 76 46 L72 46 Q50 40 28 46 Z"/>
@@ -199,9 +220,43 @@
         </div>
         <div class="product-body">
           <div class="name">Le Seau</div>
-          <div class="desc">Volume rond, fermeture coulissante, ligne épurée. Cuir grainé bordeaux.</div>
+          <div class="desc" data-i18n="p.seau.desc">Volume rond, fermeture coulissante, ligne épurée. Cuir grainé bordeaux.</div>
           <div class="price">160 000 FCFA</div>
-          <a href="#suivez" class="product-buy" data-order-product="Le Seau">Commander</a>
+          <a href="#suivez" class="product-buy" data-order-product="Le Seau" data-i18n="p.order">Commander</a>
+        </div>
+      </div>
+      <div class="product-card" data-category="parfum">
+        <div class="product-img">
+          <!-- Remplacer par une vraie photo produit : images/produits/parfum-ambre.jpg -->
+          <span class="material-tag" data-i18n="mat.parfum">Eau de parfum</span>
+          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
+            <rect x="38" y="34" width="24" height="16" rx="2"/>
+            <path d="M44 34 V24 C44 20 56 20 56 24 V34"/>
+            <rect x="32" y="50" width="36" height="32" rx="4"/>
+          </svg>
+        </div>
+        <div class="product-body">
+          <div class="name">Ambre de Paris</div>
+          <div class="desc" data-i18n="p.ambre.desc">Eau de parfum boisée et ambrée, importée directement des parfumeries parisiennes. 50 ml.</div>
+          <div class="price">45 000 FCFA</div>
+          <a href="#suivez" class="product-buy" data-order-product="Ambre de Paris" data-i18n="p.order">Commander</a>
+        </div>
+      </div>
+      <div class="product-card" data-category="parfum">
+        <div class="product-img">
+          <!-- Remplacer par une vraie photo produit : images/produits/parfum-fleur.jpg -->
+          <span class="material-tag" data-i18n="mat.parfum">Eau de parfum</span>
+          <svg class="img-fallback" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" aria-hidden="true">
+            <rect x="38" y="34" width="24" height="16" rx="2"/>
+            <path d="M44 34 V24 C44 20 56 20 56 24 V34"/>
+            <rect x="32" y="50" width="36" height="32" rx="4"/>
+          </svg>
+        </div>
+        <div class="product-body">
+          <div class="name">Fleur de Seine</div>
+          <div class="desc" data-i18n="p.fleur.desc">Eau de parfum florale et légère, notes de pivoine et de musc blanc. 50 ml.</div>
+          <div class="price">42 000 FCFA</div>
+          <a href="#suivez" class="product-buy" data-order-product="Fleur de Seine" data-i18n="p.order">Commander</a>
         </div>
       </div>
     </div>
@@ -210,8 +265,8 @@
 
 <section class="quote-section">
   <div class="wrap">
-    <blockquote>J'ai commandé sur WhatsApp un jeudi, le sac était en boutique le samedi. La qualité n'a rien à voir avec ce qu'on trouve d'habitude ici.</blockquote>
-    <cite>Awa, cliente à Ouaga 2000</cite>
+    <blockquote data-i18n="quote.text">J'ai commandé sur WhatsApp un jeudi, le sac était en boutique le samedi. La qualité n'a rien à voir avec ce qu'on trouve d'habitude ici.</blockquote>
+    <cite data-i18n="quote.cite">Awa, cliente à Ouaga 2000</cite>
   </div>
 </section>
 
@@ -223,29 +278,29 @@
 <section class="boutique" id="boutique">
   <div class="wrap boutique-grid">
     <div>
-      <h2>Notre boutique</h2>
+      <h2 data-i18n="shop.h2">Notre boutique</h2>
       <div class="info-list">
         <div class="row">
-          <div class="label">Adresse</div>
+          <div class="label" data-i18n="shop.address">Adresse</div>
           <div class="val">Zone du Bois, non loin de la Pharmacie Wemtenga, Ouagadougou</div>
         </div>
         <div class="row">
-          <div class="label">Horaires</div>
-          <div class="val">Lundi à samedi, 9h – 19h</div>
+          <div class="label" data-i18n="shop.hours">Horaires</div>
+          <div class="val" data-i18n="shop.hoursVal">Lundi à samedi, 9h – 19h</div>
         </div>
         <div class="row">
-          <div class="label">Téléphone / WhatsApp</div>
+          <div class="label" data-i18n="shop.phone">Téléphone / WhatsApp</div>
           <div class="val">+226 XX XX XX XX</div>
         </div>
         <div class="row">
-          <div class="label">Livraison</div>
-          <div class="val">Gratuite à Ouagadougou · sur devis pour Bobo-Dioulasso et les autres villes</div>
+          <div class="label" data-i18n="shop.delivery">Livraison</div>
+          <div class="val" data-i18n="shop.deliveryVal">Gratuite à Ouagadougou · sur devis pour Bobo-Dioulasso et les autres villes</div>
         </div>
       </div>
       <div class="pay-badges">
         <span>Orange Money</span>
         <span>Moov Money</span>
-        <span>Espèces en boutique</span>
+        <span data-i18n="shop.cash">Espèces en boutique</span>
       </div>
     </div>
     <div class="map-card">
@@ -261,13 +316,13 @@
 <section class="follow" id="suivez">
   <div class="wrap">
     <div class="follow-inner">
-      <h2>Restons en contact</h2>
-      <p>Les nouveaux lots sont annoncés en premier sur WhatsApp et Instagram.</p>
+      <h2 data-i18n="contact.h2">Restons en contact</h2>
+      <p data-i18n="contact.p">Les nouveaux lots sont annoncés en premier sur WhatsApp et Instagram.</p>
       <div class="follow-links">
         <!-- hrefs de secours si JS désactivé ; mis à jour dynamiquement par js/main.js -->
-        <a href="https://wa.me/22670000000" data-whatsapp-link>Rejoindre la liste WhatsApp</a>
-        <a href="https://instagram.com/yennenga.mode" data-instagram-link>Suivre sur Instagram</a>
-        <a href="tel:+22670000000" data-whatsapp-phone>Appeler la boutique</a>
+        <a href="https://wa.me/22670000000" data-whatsapp-link data-i18n="contact.linkWhatsapp">Rejoindre la liste WhatsApp</a>
+        <a href="https://instagram.com/yennenga.mode" data-instagram-link data-i18n="contact.linkInsta">Suivre sur Instagram</a>
+        <a href="tel:+22670000000" data-whatsapp-phone data-i18n="contact.linkCall">Appeler la boutique</a>
       </div>
     </div>
 
@@ -280,37 +335,43 @@
       dans WhatsApp avec les informations saisies, pour ne perdre aucune demande.
     -->
     <form class="contact-form" id="contact-form" method="POST">
-      <h3>Envoyer une demande</h3>
-      <div class="sub">Précisez le modèle qui vous intéresse, nous revenons vers vous rapidement.</div>
+      <h3 data-i18n="form.h3">Envoyer une demande</h3>
+      <div class="sub" data-i18n="form.sub">Précisez le modèle qui vous intéresse, nous revenons vers vous rapidement.</div>
 
       <!-- Piège à robots (anti-spam Formspree) : champ caché, doit rester vide -->
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <input type="hidden" name="_subject" value="Nouvelle demande — Yennenga Mode">
 
       <div class="field">
-        <label for="cf-nom">Nom</label>
-        <input type="text" id="cf-nom" name="nom" placeholder="Votre nom" required>
+        <label for="cf-nom" data-i18n="form.name">Nom</label>
+        <input type="text" id="cf-nom" name="nom" placeholder="Votre nom" data-i18n-placeholder="form.namePh" required>
       </div>
       <div class="field">
-        <label for="cf-tel">Téléphone / WhatsApp</label>
+        <label for="cf-tel" data-i18n="form.phone">Téléphone / WhatsApp</label>
         <input type="tel" id="cf-tel" name="telephone" placeholder="+226 XX XX XX XX" required>
       </div>
       <div class="field">
-        <label for="cf-modele">Modèle souhaité</label>
+        <label for="cf-modele" data-i18n="form.model">Modèle souhaité</label>
         <select id="cf-modele" name="modele">
-          <option>Le Cabas</option>
-          <option>La Besace</option>
-          <option>Le Mini</option>
-          <option>La Pochette</option>
-          <option>Le Seau</option>
-          <option>Autre / je ne sais pas encore</option>
+          <optgroup label="Sacs" data-i18n-label="form.grpBags">
+            <option>Le Cabas</option>
+            <option>La Besace</option>
+            <option>Le Mini</option>
+            <option>La Pochette</option>
+            <option>Le Seau</option>
+          </optgroup>
+          <optgroup label="Parfums" data-i18n-label="form.grpPerfumes">
+            <option>Ambre de Paris</option>
+            <option>Fleur de Seine</option>
+          </optgroup>
+          <option data-i18n="form.other">Autre / je ne sais pas encore</option>
         </select>
       </div>
       <div class="field">
-        <label for="cf-msg">Message (facultatif)</label>
-        <textarea id="cf-msg" name="message" placeholder="Une question, une couleur souhaitée…"></textarea>
+        <label for="cf-msg" data-i18n="form.message">Message (facultatif)</label>
+        <textarea id="cf-msg" name="message" placeholder="Une question, une couleur souhaitée…" data-i18n-placeholder="form.messagePh"></textarea>
       </div>
-      <button type="submit" class="contact-submit">Envoyer la demande</button>
+      <button type="submit" class="contact-submit" data-i18n="form.submit">Envoyer la demande</button>
       <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
     </form>
   </div>
@@ -331,14 +392,14 @@
         <span>Yennenga Mode</span>
       </div>
       <div class="foot-links">
-        <a href="#collections">Collections</a>
-        <a href="#trajet">L'import</a>
-        <a href="#boutique">Boutique</a>
-        <a href="#suivez">Contact</a>
+        <a href="#collections" data-i18n="nav.collections">Collections</a>
+        <a href="#trajet" data-i18n="nav.import">L'import</a>
+        <a href="#boutique" data-i18n="nav.boutique">Boutique</a>
+        <a href="#suivez" data-i18n="nav.contact">Contact</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Yennenga Mode — Maroquinerie importée de France</span>
+      <span data-i18n="footer.line1">© 2026 Yennenga Mode — Sacs &amp; parfums importés de France</span>
       <span>Ouagadougou, Burkina Faso</span>
     </div>
   </div>
